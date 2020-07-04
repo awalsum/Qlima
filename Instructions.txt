@@ -1,0 +1,5 @@
+To use the Domoticz plugin, first clone this repository from Mac_Zhou and the add the plugin.py file to the same directory.
+
+https://github.com/mac-zhou/midea-msmart.git
+
+Cheers Alain.
