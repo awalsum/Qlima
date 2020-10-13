@@ -158,7 +158,7 @@ class BasePlugin:
 
 
         if (Unit == 5):
-            Domoticz.Error("Level is: " + str(Level))
+#            Domoticz.Error("Level is: " + str(Level))
             if (str(Level) == '10'):
                 device.operational_mode = ac.operational_mode_enum.auto
                 device.apply()
@@ -180,7 +180,7 @@ class BasePlugin:
 
 
         if (Unit == 6):
-            Domoticz.Error("Level is: " + str(Level))
+#            Domoticz.Error("Level is: " + str(Level))
             if (str(Level) == '10'):
                 device.fan_speed = ac.fan_speed_enum.High
                 device.apply()
@@ -200,7 +200,7 @@ class BasePlugin:
 
 
         if (Unit == 7):
-            Domoticz.Error("Level is: " + str(Level))
+ #           Domoticz.Error("Level is: " + str(Level))
             if (str(Level) == '0'):
                 device.swing_mode = ac.swing_mode_enum.Off
                 device.apply()
