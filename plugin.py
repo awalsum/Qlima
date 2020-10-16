@@ -15,6 +15,7 @@
     </description>
     <params>
         <param field="Address" label="IP Address" width="200px" required="true" default="192.168.0.61"/>
+        <param field="Mode4" label="Port" width="100px" required="true" default="6444"/>
         <param field="Mode3" label="Unit id" width="300px" required="true" default="18691600000000"/>
         <param field="Mode1" label="Update interval (sec):" width="75px">
             <options>
@@ -55,7 +56,8 @@ class BasePlugin:
     def onStart(self):
         device_ip = Parameters["Address"]
         device_id = Parameters["Mode3"]
-        client = midea_device(device_ip, int(device_id))
+        device_port = Parameters["Mode4"]
+        client = midea_device(device_ip, int(device_id), int(device_port))
         device = client.setup()
 
 # get AC info
@@ -120,7 +122,8 @@ class BasePlugin:
     def onCommand(self, Unit, Command, Level, Hue):
         device_ip = Parameters["Address"]
         device_id = Parameters["Mode3"]
-        client = midea_device(device_ip, int(device_id))
+        device_port = Parameters["Mode4"]
+        client = midea_device(device_ip, int(device_id), int(device_port))
         device = client.setup()
       
         Domoticz.Debug(
@@ -270,7 +273,8 @@ class BasePlugin:
     def DataUpdate(self):
         device_ip = Parameters["Address"]
         device_id = Parameters["Mode3"]
-        client = midea_device(device_ip, int(device_id))
+        device_port = Parameters["Mode4"]
+        client = midea_device(device_ip, int(device_id), int(device_port))
         device = client.setup()
         
         try:
