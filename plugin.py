@@ -279,6 +279,8 @@ class BasePlugin:
         
         try:
             device.refresh()
+            if device.indoor_temperature == 0.0 and device.indoor_temperature == 0.0 and device.target_temperature == 17.0:
+               raise ConnectionError('Could not connect with device',)
             Devices[1].Update(nValue=device.power_state, sValue=str(device.power_state))
             Devices[2].Update(nValue=0, sValue=str(device.indoor_temperature))
             Devices[3].Update(nValue=0, sValue=str(device.outdoor_temperature))
@@ -327,6 +329,10 @@ class BasePlugin:
             Devices[8].Update(nValue=device.turbo_mode, sValue=str(device.turbo_mode))
             Devices[9].Update(nValue=device.eco_mode, sValue=str(device.eco_mode))
 
+        except ConnectionError as error:
+            Domoticz.Error(repr(error))
+            return
+            
         except:
             Domoticz.Error("Qlima (" + Parameters["Address"] + ") unavailable")
             return        
